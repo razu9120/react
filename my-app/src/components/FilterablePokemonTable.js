@@ -4,6 +4,7 @@ import AddPokemon from '../components/AddPokemon';
 import SearchPokemon from '../components/SearchPokemon';
 import TypeFilterPokemon from '../components/TypeFilterPokemon';
 import PokemonRow from '../components/PokemonRow';
+import PokemonCsvOutput from '../components/PokemonCsvOutput';
 
 import '../App.css';
 
@@ -12,6 +13,7 @@ const FilterablePokemonTable = () => {
     const [datas, setDatas] = useState(JSON.parse(localStorage.getItem('datas')) || []);
     const [filterName, setFilterName] = useState('');
     const [filterType, setFilterType] = useState('');
+    const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
         localStorage.setItem('datas', JSON.stringify(datas));
@@ -27,12 +29,18 @@ const FilterablePokemonTable = () => {
 
     return (
       <>
-        <AddPokemon datas={datas} addData={addData} />
-        <div className="search-area">
-            <SearchPokemon filterName={filterName} setFilterName={setFilterName} />
-            <TypeFilterPokemon setFilterType={setFilterType} />
+        <div className="add-area">
+            <AddPokemon datas={datas} addData={addData} />
         </div>
-        <PokemonRow datas={datas} clearDatas={clearDatas} filterName={filterName}  filterType={filterType}/>
+        <div className="search-area">
+            <SearchPokemon filterName={filterName} setFilterName={setFilterName} setCurrentPage={setCurrentPage} />
+            <TypeFilterPokemon setFilterType={setFilterType} setCurrentPage={setCurrentPage} />
+            <PokemonCsvOutput datas={datas} filterName={filterName} filterType={filterType} />
+        </div>
+        <div className="data-area">
+            <PokemonRow datas={datas} clearDatas={clearDatas} filterName={filterName} 
+                filterType={filterType} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+        </div>
       </>
     );
   };

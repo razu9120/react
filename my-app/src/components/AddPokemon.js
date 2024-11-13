@@ -5,15 +5,20 @@ import '../App.css';
 const AddPokemon = ({datas, addData}) => {
 
     const URL = 'http://localhost:8080/pokemon/';
-
     const [pokemon, setPokemon] = useState('');
 
     const getPokemonFromApi = async() => {
         try {
-            const response = await fetch(`${URL}${pokemon}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            const body = {
+                name: pokemon
+            };
+            const response = await fetch(URL + 'post', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body) 
+            })
             const data = await response.json();
             return data;
         } catch (error) {
@@ -29,6 +34,10 @@ const AddPokemon = ({datas, addData}) => {
             setPokemon('');
             return;
         }
+        if (!!datas.find(d => d.id === pokemon)) {
+            setPokemon('');
+            return;
+        }
         try {
             const data = await getPokemonFromApi(); // ここで `await` を追加
             addData(data); // 取得したデータを `addData` に渡す
@@ -40,11 +49,9 @@ const AddPokemon = ({datas, addData}) => {
 
     return (
       <>
-        <form onSubmit={handleSubmit} className="add-form">
+        <form onSubmit={handleSubmit}>
             <input type="text" value={pokemon} placeholder="Add..." onChange={(e) => setPokemon(e.target.value)} />
-            <button>
-            Add
-            </button>
+            <button>Add</button>
         </form>
       </>
     );

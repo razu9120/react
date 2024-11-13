@@ -1,13 +1,18 @@
-import {types} from '../objects/types'
+import {types} from '../objects/types';
 
 import '../App.css';
 
-const TypeFilterPokemon = ({setFilterType}) => {
+const TypeFilterPokemon = ({setFilterType, setCurrentPage}) => {
+
+    const selectChange = (e) => {
+        setFilterType(e.target.value);
+        setCurrentPage(0);
+    };
 
     return (
       <>
         <select name="types" id="type-select" className="type-select" 
-            onChange={(e) => setFilterType(e.target.value)}>
+            onChange={selectChange}>
             {types.map(option => 
                 <option key={option.id} value={option.value}>{option.text}</option>)}
         </select>

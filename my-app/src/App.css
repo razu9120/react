@@ -1,5 +1,5 @@
+.add-area,
 .search-area,
-.add-form,
 .data-area {
   background-color: #ffffff;
   border-radius: 5px;
@@ -20,16 +20,16 @@ body {
   padding: 20px;
 }
 
-.add-form input[type='text'] {
+.add-area input[type='text'] {
   width: 30%;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #cccccc;
 }
 
-.data-area button,
-.add-form button {
+.add-area button,
+.search-area button,
+.data-area button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -38,23 +38,85 @@ body {
   cursor: pointer;
 }
 
-.data-area button:hover,
-.add-form button:hover {
+.add-area button:hover,
+.search-area button:hover,
+.data-area button:hover {
   background-color: #0056b3;
 }
 
 .search-input {
   width: 30%;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #cccccc;
 }
 
 .type-select {
-  width: 60%;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: 30%;
+  padding: 9px;
   border-radius: 5px;
   border: 1px solid #cccccc;
+}
+
+/* ページネーションの全体 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 各ページ番号のスタイル */
+.pagination li {
+  margin: 0 5px;
+}
+
+/* クリック可能なページ番号のリンク */
+.pagination a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* ホバー時の背景色 */
+.pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+/* 現在のページ番号（アクティブページ） */
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination .active a:hover {
+  background-color: #0056b3;
+}
+
+/* 前後ページのリンク（next/previous） */
+.pagination .previous a,
+.pagination .next a {
+  font-weight: bold;
+}
+
+/* 次ページ、前ページのリンクが無効な場合 */
+.pagination .disabled a {
+  color: #ccc;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.cover1 img{
+  width: 50px;
+  height: 40px;
+}
+
+img{
+  object-fit: cover;
 }
