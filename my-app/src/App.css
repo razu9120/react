@@ -8,6 +8,10 @@
   margin-bottom: 20px;
 }
 
+.add-area input {
+  margin-right: 10px;
+}
+
 .data-list li {
   list-style-type: none;
   padding: 10px;
@@ -28,20 +32,80 @@ body {
 }
 
 .add-area button,
-.search-area button,
-.data-area button {
+.search-area button {
   background-color: #007bff;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
 }
 
+.ascButtun {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 70px;
+  height: 35px;
+}
+
+.descButtun {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 70px;
+  height: 35px;
+}
+
+.clearButtun {
+  background-color: #ff0055;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: #ff0055;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.listItem {
+  display: flex;
+  align-items: center; /* 縦中央揃え */
+  gap: 10px; /* 要素間の余白 */
+}
+
 .add-area button:hover,
-.search-area button:hover,
-.data-area button:hover {
+.search-area button:hover {
   background-color: #0056b3;
+}
+
+.ascButtun:hover,
+.descButtun:hover {
+  background-color: #0056b3;
+}
+
+.clearButtun:hover {
+  background-color: #d50047;
+}
+
+.deleteButton:hover {
+  background-color: #d50047;
 }
 
 .search-input {
@@ -56,6 +120,7 @@ body {
   padding: 9px;
   border-radius: 5px;
   border: 1px solid #cccccc;
+  margin-right: 10px;
 }
 
 /* ページネーションの全体 */
@@ -80,7 +145,7 @@ body {
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  /* transition: background-color 0.2s; */
 }
 
 /* ホバー時の背景色 */
@@ -119,4 +184,9 @@ body {
 
 img{
   object-fit: cover;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
 }

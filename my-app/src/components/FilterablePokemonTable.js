@@ -38,7 +38,7 @@ const FilterablePokemonTable = () => {
             <PokemonCsvOutput datas={datas} filterName={filterName} filterType={filterType} />
         </div>
         <div className="data-area">
-            <PokemonRow datas={datas} clearDatas={clearDatas} filterName={filterName} 
+            <PokemonRow datas={datas} setDatas={setDatas} clearDatas={clearDatas} filterName={filterName} 
                 filterType={filterType} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
         </div>
       </>
